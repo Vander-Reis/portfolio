@@ -7,11 +7,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import './assets/main.css'
+import './styles/base.scss'
 
 console.log(icons);
 
 library.add({...icons})
+
+
 
 createApp(App)
     .component("font-awesome-icon", FontAwesomeIcon)

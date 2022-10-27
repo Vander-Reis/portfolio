@@ -12,5 +12,9 @@ export default {
       },
       components: {
         HeaderPortfolio
-      },    
+      },   
+      
+      mounted () {
+        document.querySelector('body').style.background = "#020202"
+      },
 }

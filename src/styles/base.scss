@@ -1,0 +1,41 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  $color-text: #FFF;
+  $color-yellow: #ffb800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  color: var(color-text);
+  background: #020202;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  h1 {
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+  #app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+  
+    font-weight: normal;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+}
+
