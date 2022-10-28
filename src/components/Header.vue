@@ -31,4 +31,10 @@ import { RouterLink } from 'vue-router'
   header nav a:hover {
     color:#FFB800;
   }
+
+  @media(max-width: 680px) {
+    header nav {
+      justify-content: center;
+    }
+  }
 </style>

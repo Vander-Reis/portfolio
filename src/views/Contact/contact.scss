@@ -8,6 +8,13 @@ main {
     display: flex;
     justify-content: space-between;
 
+    @media(max-width: 680px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .contact {
       width: 300px;
 
@@ -61,7 +68,7 @@ main {
 
       button {
         width: 160px;
-        height: 33px;
+        height: 45px;
         background: #ffb800;
         border-radius: 10px;
         cursor: pointer;
@@ -72,6 +79,8 @@ main {
         color: #020202;
         margin: 0 0 0 auto;
         transition: all .2s;
+        outline: none;
+        border: none;
 
         &:hover {
             background: #ffb830;

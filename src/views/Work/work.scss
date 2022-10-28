@@ -16,7 +16,9 @@ main {
     gap: 38px;
     margin-top: 50px;
     
-
+    @media(max-width: 680px) {
+        grid-template-columns: 1fr;
+    }
 
     img {
         width: 100%;
