@@ -1,0 +1,28 @@
+<header>
+  <HeaderPortfolio/>
+</header>
+
+<main>
+    <h1>Projetos</h1>
+    <p>Abaixo deixo alguns projetos que eu desenvolvi!</p>
+
+    <div class="projects">
+      <div v-for="project in projects" :key="project.id">
+        <img :src="project.img">
+        <h4>{{project.name}}</h4>
+        <div class="links-work">
+          <a :href="project.repo" target="_blank"><font-awesome-icon icon="fa-brands fa-github" />repositorio</a>
+          <div v-if="project.deploy != null">
+            <a :href="project.deploy" target="_blank"><font-awesome-icon icon="fa-brands fa-octopus-deploy" />deploy</a>
+          </div>
+          <div v-else>
+
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+</main>
+
+

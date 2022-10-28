@@ -1,19 +1,26 @@
 <header>
-  <HeaderPortfolio/>
+  <HeaderPortfolio />
 </header>
 
 <main>
-
   <div class="picture">
-
+    <img src="https://media-exp1.licdn.com/dms/image/C4D22AQGTS9rnYh3-lA/feedshare-shrink_800/0/1662126272792?e=1669852800&v=beta&t=XCfBdM34Kh23cuQwuokV3ShmxaEo9x2Lp4g0aO7L5D0" alt="">
   </div>
 
   <div class="about">
     <h2>Sobre</h2>
     <h1>Vander Reis</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, doloribus ab tenetur laudantium nihil repudiandae consequatur provident rem neque, quod itaque esse eaque voluptates nesciunt culpa saepe. Molestias, quidem reiciendis!</p>
+    <p>
+      Tenho 23 anos, curso Engenharia de computação a 3 anos, e estudo desenvolvimento para web mais de 1 ano.
+      Comecei nesse mundo do desenvolvimento graças a <strong>Rocketseat</strong>, estava navegando na internet um certo dia e me deparei com uma nlw <strong>"NEXT LEVEL WEEK"</strong> depois de passar por aquela semana de desafios, me apaixonei pela área desde então venho tentando me aprofundar em algumas tecnologias citadas a baixo.  
+    </p>
+
+    <h2>Habilidades</h2>
+
+    <div class="skills">
+      <div v-for="skill in skills" :key="skill.id">
+        <p><span></span>{{skill.name}}</p>
+      </div>
+    </div>
   </div>
-
 </main>
-
-

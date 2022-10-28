@@ -1,11 +1,13 @@
-import { faLinkedin, faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons"
+import { faLinkedin, faGithub, faInstagram, faOctopusDeploy} from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+
 
 const icons = {
     faLinkedin,
     faGithub,
     faEnvelope,
-    faInstagram
+    faInstagram,
+    faOctopusDeploy
 }
 
 export default icons;
