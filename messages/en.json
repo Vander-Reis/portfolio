@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "title": "Vander Reis — Senior Back-end Developer",
+    "description": "From intern to senior in under 3 years. Back-end with .NET and Node.js, legacy modernization, Clean Architecture, DDD and TDD."
+  },
+  "nav": {
+    "main": "Main navigation",
+    "skip": "Skip to content",
+    "cases": "Cases",
+    "career": "Career",
+    "certifications": "Certifications",
+    "stack": "Stack",
+    "contact": "Contact",
+    "security": "Security",
+    "language": "Language",
+    "themeDark": "Switch to dark theme",
+    "themeLight": "Switch to light theme",
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Senior Back-end · Tech One · Remote, Brazil",
+    "title": [
+      { "text": "I started in tech in 2020. In under 3 years, from intern to " },
+      { "text": "senior.", "style": "accent" }
+    ],
+    "lead": "I build robust back-ends in .NET and Node.js, modernize legacy systems and lead technically — tests before code, Clean Architecture and DDD.",
+    "ctaCases": "See cases",
+    "ctaContact": "Get in touch",
+    "stats": {
+      "months": "months to senior",
+      "roles": "roles",
+      "certs": "certifications",
+      "years": "years coding"
+    }
+  },
+  "bento": {
+    "eyebrow": "About / Now",
+    "title": "A bit about me, <em>right now</em>.",
+    "photoAlt": "Photo of Vander Reis",
+    "now": "Currently working on",
+    "nowFoot": "Several fronts at once — always <b>local environment before production</b>.",
+    "clock": {
+      "label": "Local time · Minas Gerais",
+      "working": "Working hours — quick replies",
+      "off": "Off hours — I'll reply tomorrow",
+      "loading": "Syncing…"
+    },
+    "commit": {
+      "label": "Latest public commit",
+      "empty": "GitHub is unavailable right now."
+    },
+    "stack": "Core stack",
+    "oracle": "Oracle certified",
+    "education": "Education",
+    "offline": "Off the keyboard"
+  },
+  "cases": {
+    "eyebrow": "Cases",
+    "title": "Real problems, <em>architecture</em> that survives production.",
+    "intro": "Context, problem, solution, architecture and result. Client work without sensitive data — the focus is the approach.",
+    "read": "Read the case",
+    "earlyTitle": "Where I <em>started</em>",
+    "earlyIntro": "My first repositories, from 2021–2022. Simple, but this is where I fell in love with shipping.",
+    "legacyDiagram": "On the left, a COBOL program. Business rules migrate module by module (strangler fig pattern) into a .NET Core API organized in Clean Architecture layers: Domain at the core, surrounded by Application, Infrastructure and API.",
+    "legacyArrow": "strangler fig"
+  },
+  "caseDetail": {
+    "back": "All cases",
+    "period": "Period",
+    "role": "Role",
+    "stack": "Stack",
+    "repo": "View repository",
+    "confidential": "Client project: details and data omitted for confidentiality.",
+    "architecture": "Architecture",
+    "context": "Context",
+    "problem": "Problem",
+    "solution": "Solution",
+    "decisions": "Architecture decisions",
+    "results": "Result",
+    "more": "More cases",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "career": {
+    "eyebrow": "Career",
+    "title": "From intern to senior in <accent>{duration}</accent>.",
+    "intro": "Every promotion came from delivery: first support, then build, then modernize and, finally, lead.",
+    "level": "Level",
+    "current": "current"
+  },
+  "certifications": {
+    "eyebrow": "Certifications",
+    "title": "Continuous learning, <em>validated</em>.",
+    "intro": "Oracle for the ecosystem I work in every day; Rocketseat for the foundation that got me here.",
+    "credential": "View credential"
+  },
+  "stack": {
+    "eyebrow": "Stack",
+    "title": "Tools I use <em>in production</em>.",
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "data": "Data & Messaging",
+      "devops": "DevOps & Cloud",
+      "security": "Security"
+    }
+  },
+  "principles": {
+    "eyebrow": "How I work",
+    "title": "Business rules <em>before</em> code.",
+    "intro": "A way of working that scales with the team and with the system.",
+    "items": {
+      "tdd": {
+        "title": "TDD",
+        "body": "I write business rules and tests before the implementation. The test is the spec — and the safety net to refactor without fear."
+      },
+      "clean": {
+        "title": "Clean Architecture",
+        "body": "Domain at the core, framework at the edge. Swapping a database, queue or provider shouldn't rewrite business rules."
+      },
+      "ddd": {
+        "title": "DDD",
+        "body": "Ubiquitous language with the business and well-bounded contexts — especially useful when taking a legacy system apart."
+      },
+      "mentoring": {
+        "title": "Mentoring",
+        "body": "I steer tasks and guide developers by explaining the why, not just the how."
+      },
+      "docs": {
+        "title": "Documentation",
+        "body": "ADRs for decisions, READMEs that run on the first try and runbooks for whoever is on call."
+      }
+    }
+  },
+  "github": {
+    "eyebrow": "Live GitHub",
+    "title": "What's <em>fresh out of the oven</em>.",
+    "intro": "Public data from the GitHub API, refreshed automatically.",
+    "repos": "Repositories",
+    "followers": "Followers",
+    "lastCommit": "Latest commit",
+    "profile": "See full profile",
+    "noDescription": "No description.",
+    "unavailable": "Couldn't reach GitHub right now. Please try again later.",
+    "cache": "// 1h cache with incremental revalidation (ISR)"
+  },
+  "securityTeaser": {
+    "eyebrow": "This site's security",
+    "title": "Security isn't <em>optional</em> — not even here.",
+    "body": "This portfolio follows the same practices I apply in production: strict nonce-based CSP, modern headers, bot protection and a security pipeline in CI.",
+    "cta": "See details"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's <em>talk</em>?",
+    "intro": "Projects, roles, mentoring or just architecture chat. I reply within two business days.",
+    "elsewhere": "Or find me on",
+    "fields": { "name": "Name", "email": "E-mail", "message": "Message" },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@company.com",
+      "message": "Tell me a bit about what you need…"
+    },
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": "Message sent. Thank you!",
+    "errors": {
+      "name_short": "Please enter your name.",
+      "name_long": "Name is too long.",
+      "name_invalid": "Name contains invalid characters.",
+      "email_invalid": "Please enter a valid e-mail.",
+      "message_short": "Message needs at least 10 characters.",
+      "message_long": "Message is too long (max 5000).",
+      "rate_limited": "Too many messages in a short time. Please try again in a few minutes.",
+      "captcha": "We couldn't verify you're human. Reload and try again.",
+      "unavailable": "Service unavailable. Try again or reach me on LinkedIn."
+    }
+  },
+  "securityPage": {
+    "metaTitle": "This site's security",
+    "metaDescription": "Headers, nonce-based CSP, form protection, security pipeline and OWASP Top 10 applied to this portfolio.",
+    "eyebrow": "Security",
+    "title": "How this site <em>defends</em> itself.",
+    "intro": "Full transparency: what is configured, why, and how to verify it. Goal: A+ on securityheaders.com and Mozilla Observatory.",
+    "headersTitle": "HTTP headers",
+    "value": "Value",
+    "cspBody": "Every request gets a random 128-bit nonce. Only scripts carrying it run; 'strict-dynamic' extends trust to what they load. No inline script without a nonce, no allow-listed hosts.",
+    "cspLive": "Policy sent with this response (nonce redacted)",
+    "formTitle": "Layered contact form",
+    "form": {
+      "honeypot": {
+        "title": "Honeypot",
+        "body": "A field invisible to humans. If it's filled, the request pretends to succeed and is dropped."
+      },
+      "rateLimit": {
+        "title": "Rate limit",
+        "body": "3 sends every 10 minutes per client, backed by Upstash Redis. The key is a SHA-256 hash of the IP."
+      },
+      "zod": {
+        "title": "Server-side validation",
+        "body": "Zod checks type, length and format. Line breaks in names are blocked (header injection)."
+      },
+      "turnstile": {
+        "title": "Cloudflare Turnstile",
+        "body": "Frictionless captcha, verified on the server with the secret key."
+      },
+      "sanitize": {
+        "title": "Sanitization",
+        "body": "HTML escaped and control characters stripped before building the e-mail."
+      },
+      "logs": {
+        "title": "Clean logs",
+        "body": "No e-mail, IP or message in logs. Provider errors never reach the client."
+      }
+    },
+    "ciTitle": "Security pipeline",
+    "ciBody": "Every Pull Request goes through quality, tests and security before merging into the protected main branch. Dependabot keeps dependencies current.",
+    "disclosureTitle": "Found something?",
+    "disclosureBody": "Responsible disclosure is welcome. Contact channels are in security.txt and in the repository's security policy."
+  },
+  "footer": {
+    "built": "Next.js, TypeScript and lots of coffee.",
+    "security": "Security"
+  },
+  "notFound": {
+    "title": "Page <em>not found</em>.",
+    "body": "The link may be broken or the page has moved.",
+    "cta": "Back to home"
+  }
+}

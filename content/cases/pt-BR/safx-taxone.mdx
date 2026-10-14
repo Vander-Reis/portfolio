@@ -1,0 +1,30 @@
+---
+title: Administração SAFX para Tax One
+kicker: Fiscal · Integração
+summary: Ferramenta para que a área fiscal envie planilhas Excel, valide e converta para o layout SAFX e entregue os arquivos ao Tax One por SFTP — sem intervenção manual de TI.
+order: 5
+period: "2024"
+role: Desenvolvedor back-end
+diagram: safx
+stack: [C#, .NET, Excel, SFTP, Oracle, Tax One]
+context: A área fiscal precisava abastecer o Tax One com arquivos no layout SAFX. O processo dependia de montar arquivos manualmente e pedir ao time técnico para enviá-los.
+problem: Processo manual, sujeito a erro de layout, sem histórico de envios e com dependência do time de TI para cada carga.
+solution: Uma tela de administração para upload de planilhas, uma API .NET que valida e converte cada linha para o layout SAFX, registra o histórico e envia o arquivo por SFTP diretamente para o Tax One.
+architecture:
+  - API .NET com validação de layout linha a linha e mensagens de erro compreensíveis para o usuário.
+  - Conversão Excel → SAFX isolada em um serviço de domínio testável.
+  - Envio por SFTP com credenciais fora do código.
+  - Histórico de cargas para auditoria.
+results:
+  - value: Autonomia
+    label: A área fiscal faz a carga sem abrir chamado para TI
+  - value: Validação prévia
+    label: Erros de layout aparecem antes de chegar ao Tax One
+  - value: Auditável
+    label: Cada envio registrado com histórico
+confidential: true
+---
+
+## Erro bom é erro cedo
+
+A validação acontece no upload, linha a linha, com mensagens que fazem sentido para quem é do fiscal — não para quem é de TI. Corrigir a planilha antes do envio é muito mais barato do que investigar uma rejeição no Tax One.

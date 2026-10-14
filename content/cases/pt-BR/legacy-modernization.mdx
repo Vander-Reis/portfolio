@@ -1,0 +1,42 @@
+---
+title: Modernização de legado — COBOL → .NET Core
+kicker: Oracle Financials
+summary: Migração de regras de negócio críticas escritas em COBOL para APIs .NET Core integradas ao Oracle Financials, com Clean Architecture e DDD.
+order: 1
+period: 2023 — hoje
+role: Full-stack Pleno → Back-end Sênior
+diagram: legacy
+stack: [C#, .NET Core, Oracle, EF Core, xUnit, Clean Architecture, DDD]
+context: Sistemas financeiros que rodam há décadas sobre COBOL e integram com o Oracle Financials. Funcionam — e por isso ninguém quer mexer. Mas cada mudança era lenta, cara e dependia de poucas pessoas que ainda dominavam o código.
+problem: As regras de negócio estavam espalhadas em programas batch, sem testes e com conhecimento concentrado. Reescrever tudo de uma vez seria arriscado demais para um sistema financeiro em produção.
+solution: Migração incremental no padrão strangler fig — módulo a módulo. Para cada fluxo, primeiro documentamos as regras como testes (usando as saídas do COBOL como oráculo), depois implementamos em .NET Core até os resultados baterem, e só então redirecionamos o tráfego.
+architecture:
+  - Clean Architecture com Domain isolado de Oracle e framework; Infrastructure implementa as portas de repositório.
+  - DDD para nomear e delimitar contextos com a linguagem do time financeiro.
+  - Testes de caracterização comparando saídas COBOL × .NET antes de cada corte.
+  - APIs integradas ao Oracle Financials com contratos versionados.
+results:
+  - value: Módulo a módulo
+    label: Migração sem big-bang, com o legado rodando em paralelo
+  - value: Testes primeiro
+    label: Regras críticas documentadas como especificação executável
+  - value: 4 camadas
+    label: Domain, Application, Infrastructure e API com dependências apontando para dentro
+confidential: true
+---
+
+## Por que strangler fig
+
+Num sistema financeiro, o custo de errar é alto e o custo de parar é maior ainda. O strangler fig permite trocar o motor com o carro andando: cada módulo novo nasce ao lado do antigo, prova que entrega o mesmo resultado e só então assume.
+
+> O COBOL não era o problema. O problema era não saber, com testes, o que ele fazia.
+
+## Testes como contrato
+
+Antes de escrever uma linha de C#, os comportamentos do programa antigo viram testes de caracterização. Isso transforma conhecimento tácito em especificação versionada — e dá ao time segurança para evoluir as regras depois da migração.
+
+## O que eu levo desse projeto
+
+- Modernizar é mais sobre **gestão de risco** do que sobre tecnologia.
+- Linguagem ubíqua (DDD) encurta muito a conversa com o negócio.
+- Clean Architecture paga o investimento no primeiro "precisamos trocar a integração".

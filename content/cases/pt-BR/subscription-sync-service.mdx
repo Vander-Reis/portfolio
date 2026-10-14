@@ -1,0 +1,38 @@
+---
+title: subscription-sync-service
+kicker: NestJS · Asaas · RabbitMQ
+summary: Serviço que mantém o estado das assinaturas sincronizado entre várias aplicações a partir do Asaas — webhooks em tempo real e reconciliação periódica para nunca perder um evento.
+order: 2
+period: "2025"
+role: Arquiteto e desenvolvedor
+diagram: subscription
+stack: [NestJS, TypeScript, PostgreSQL, Prisma, RabbitMQ, Jest, Asaas]
+context: Várias aplicações precisavam saber, com confiança, se um cliente tem assinatura ativa. Cada uma consultava o gateway de pagamento do seu jeito, com regras duplicadas e estados divergentes.
+problem: Webhooks podem falhar, chegar duplicados ou fora de ordem. Confiar só neles gera assinaturas "fantasmas"; consultar o gateway a cada requisição é lento e esbarra em limites de API.
+solution: Um serviço único dono do estado de assinatura. Webhooks do Asaas atualizam o estado em tempo real com processamento idempotente; um job de reconciliação periódica compara com o gateway e corrige divergências. Mudanças são publicadas no RabbitMQ para cada aplicação consumir.
+architecture:
+  - Webhooks idempotentes, com chave por evento persistida no PostgreSQL.
+  - Reconciliação periódica como rede de segurança para eventos perdidos.
+  - Eventos de domínio publicados em exchange topic no RabbitMQ — as aplicações não conhecem o Asaas.
+  - Prisma para persistência e migrations; regras de transição de status testadas com Jest (TDD).
+results:
+  - value: 2 caminhos
+    label: Tempo real (webhook) + reconciliação garantem consistência eventual
+  - value: 1 fonte da verdade
+    label: Aplicações consomem eventos em vez de duplicar integração com o gateway
+  - value: TDD
+    label: Máquina de estados da assinatura especificada por testes
+repo: https://github.com/Vander-Reis
+---
+
+## A máquina de estados
+
+O coração do serviço é uma máquina de estados pura — `ACTIVE`, `OVERDUE`, `CANCELED`… — sem nenhuma dependência de NestJS ou Prisma. Ela foi escrita primeiro, guiada por testes, e é o que decide se um evento muda ou não o estado.
+
+## Idempotência de verdade
+
+Cada webhook carrega um identificador. Antes de processar, o serviço registra esse identificador numa transação; se já existir, o evento é ignorado. Duplicados e reentregas deixam de ser problema.
+
+## Reconciliação
+
+Mesmo com webhooks idempotentes, eventos podem simplesmente não chegar. A reconciliação periódica busca assinaturas no Asaas, compara com o estado local e publica correções como eventos normais — as aplicações nem percebem a diferença.

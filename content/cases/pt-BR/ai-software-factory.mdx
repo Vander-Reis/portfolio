@@ -1,0 +1,34 @@
+---
+title: AI Software Factory
+kicker: Orquestração multiagente
+summary: Plataforma que orquestra agentes de IA especializados — planejamento, código, revisão e testes — para executar fluxos de engenharia de software de ponta a ponta.
+order: 3
+period: 2025 — hoje
+role: Criador
+diagram: factory
+stack: [Next.js 15, React 19, TypeScript, Node.js, pnpm, Monorepo]
+context: Assistentes de código ajudam em tarefas isoladas, mas engenharia de software é um processo — requisitos, design, implementação, revisão e testes. Queria explorar o que acontece quando cada etapa vira um agente com papel claro.
+problem: Um único agente genérico perde contexto e qualidade em tarefas longas. Faltava uma forma de dividir o trabalho, acompanhar o progresso e manter artefatos rastreáveis.
+solution: Um monorepo pnpm com três aplicações — web, api e worker. A interface em Next.js 15 + React 19 cria e acompanha execuções; a API orquestra; o worker processa a fila e coordena agentes especializados, cada um com responsabilidade e saída bem definidas.
+architecture:
+  - Monorepo pnpm workspaces com apps/web, apps/api e apps/worker e pacotes compartilhados.
+  - Processamento assíncrono via fila — a API responde rápido, o worker faz o trabalho pesado.
+  - Agentes com papéis explícitos (planner, coder, reviewer, tester), inspirados em um time real.
+  - Estado e artefatos persistidos para rastrear cada decisão da execução.
+results:
+  - value: 3 apps
+    label: web, api e worker com responsabilidades separadas
+  - value: 4 papéis
+    label: Agentes especializados que espelham um fluxo de engenharia
+  - value: TDD
+    label: O agente de testes valida antes de o código ser aceito
+repo: https://github.com/Vander-Reis
+---
+
+## Por que multiagente
+
+Times humanos funcionam porque cada pessoa tem um papel e um critério de pronto. A ideia aqui é a mesma: o planner quebra o requisito em tarefas, o coder implementa, o reviewer critica e o tester valida — e o ciclo se repete até passar.
+
+## Por que monorepo
+
+Tipos, contratos e utilitários compartilhados entre web, api e worker vivem em pacotes internos. Uma mudança de contrato quebra o build na hora, não em produção.

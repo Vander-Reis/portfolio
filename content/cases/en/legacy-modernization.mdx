@@ -1,0 +1,42 @@
+---
+title: Legacy modernization — COBOL → .NET Core
+kicker: Oracle Financials
+summary: Migrating critical business rules written in COBOL into .NET Core APIs integrated with Oracle Financials, using Clean Architecture and DDD.
+order: 1
+period: 2023 — present
+role: Mid-level Full-stack → Senior Back-end
+diagram: legacy
+stack: [C#, .NET Core, Oracle, EF Core, xUnit, Clean Architecture, DDD]
+context: Financial systems running on COBOL for decades and integrating with Oracle Financials. They work — which is exactly why nobody wants to touch them. But every change was slow, expensive and depended on the few people who still knew the code.
+problem: Business rules were scattered across batch programs, untested, with knowledge concentrated in a few heads. Rewriting everything at once would be far too risky for a financial system in production.
+solution: Incremental migration with the strangler fig pattern — module by module. For each flow we first captured the rules as tests (using COBOL outputs as the oracle), then implemented them in .NET Core until results matched, and only then redirected traffic.
+architecture:
+  - Clean Architecture with a Domain isolated from Oracle and frameworks; Infrastructure implements the repository ports.
+  - DDD to name and bound contexts using the finance team's language.
+  - Characterization tests comparing COBOL × .NET outputs before every cut-over.
+  - APIs integrated with Oracle Financials through versioned contracts.
+results:
+  - value: Module by module
+    label: No big-bang migration, legacy running side by side
+  - value: Tests first
+    label: Critical rules documented as executable specifications
+  - value: 4 layers
+    label: Domain, Application, Infrastructure and API with dependencies pointing inward
+confidential: true
+---
+
+## Why strangler fig
+
+In a financial system the cost of being wrong is high, and the cost of stopping is even higher. Strangler fig lets you swap the engine while the car is moving: each new module is born next to the old one, proves it produces the same result, and only then takes over.
+
+> COBOL wasn't the problem. The problem was not knowing, with tests, what it did.
+
+## Tests as the contract
+
+Before writing a single line of C#, the old program's behaviour becomes characterization tests. That turns tacit knowledge into versioned specification — and gives the team confidence to evolve the rules after the migration.
+
+## What I take from it
+
+- Modernization is more about **risk management** than technology.
+- Ubiquitous language (DDD) dramatically shortens conversations with the business.
+- Clean Architecture pays for itself the first time someone says "we need to replace the integration".

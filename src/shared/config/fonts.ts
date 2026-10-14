@@ -1,0 +1,12 @@
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
+
+// Fontes self-hosted pelo next/font: sem requisição a terceiros em runtime (CSP font-src 'self').
+export const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
+export const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
+export const instrument = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-instrument',
+  display: 'swap',
+})

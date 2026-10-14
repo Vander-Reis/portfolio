@@ -1,0 +1,38 @@
+---
+title: subscription-sync-service
+kicker: NestJS · Asaas · RabbitMQ
+summary: A service that keeps subscription state in sync across several applications from Asaas — real-time webhooks plus periodic reconciliation so no event is ever lost.
+order: 2
+period: "2025"
+role: Architect and developer
+diagram: subscription
+stack: [NestJS, TypeScript, PostgreSQL, Prisma, RabbitMQ, Jest, Asaas]
+context: Several applications needed to know, reliably, whether a customer had an active subscription. Each one queried the payment gateway its own way, with duplicated rules and diverging state.
+problem: Webhooks can fail, arrive twice or out of order. Relying on them alone creates "ghost" subscriptions; querying the gateway on every request is slow and hits API limits.
+solution: A single service that owns subscription state. Asaas webhooks update it in real time with idempotent processing; a periodic reconciliation job compares against the gateway and fixes drift. Changes are published to RabbitMQ for each application to consume.
+architecture:
+  - Idempotent webhooks, with a per-event key persisted in PostgreSQL.
+  - Periodic reconciliation as a safety net for lost events.
+  - Domain events published to a RabbitMQ topic exchange — applications never know about Asaas.
+  - Prisma for persistence and migrations; status transition rules test-driven with Jest.
+results:
+  - value: 2 paths
+    label: Real time (webhook) + reconciliation guarantee eventual consistency
+  - value: 1 source of truth
+    label: Applications consume events instead of duplicating gateway integration
+  - value: TDD
+    label: Subscription state machine specified by tests
+repo: https://github.com/Vander-Reis
+---
+
+## The state machine
+
+The heart of the service is a pure state machine — `ACTIVE`, `OVERDUE`, `CANCELED`… — with no dependency on NestJS or Prisma. It was written first, test-driven, and it decides whether an event changes state or not.
+
+## Real idempotency
+
+Every webhook carries an identifier. Before processing, the service records it inside a transaction; if it already exists, the event is ignored. Duplicates and redeliveries stop being a problem.
+
+## Reconciliation
+
+Even with idempotent webhooks, events can simply never arrive. Periodic reconciliation fetches subscriptions from Asaas, compares them to local state and publishes corrections as regular events — applications can't tell the difference.

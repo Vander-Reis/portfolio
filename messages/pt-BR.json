@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "title": "Vander Reis — Desenvolvedor Back-end Sênior",
+    "description": "De estagiário a sênior em menos de 3 anos. Back-end com .NET e Node.js, modernização de legado, Clean Architecture, DDD e TDD."
+  },
+  "nav": {
+    "main": "Navegação principal",
+    "skip": "Pular para o conteúdo",
+    "cases": "Cases",
+    "career": "Trajetória",
+    "certifications": "Certificações",
+    "stack": "Stack",
+    "contact": "Contato",
+    "security": "Segurança",
+    "language": "Idioma",
+    "themeDark": "Ativar tema escuro",
+    "themeLight": "Ativar tema claro",
+    "open": "Abrir menu",
+    "close": "Fechar menu"
+  },
+  "hero": {
+    "eyebrow": "Back-end Sênior · Tech One · Remoto, MG",
+    "title": [
+      { "text": "Entrei na tecnologia em 2020. Em menos de 3 anos, de estagiário a " },
+      { "text": "sênior.", "style": "accent" }
+    ],
+    "lead": "Construo back-ends robustos em .NET e Node.js, modernizo sistemas legados e lidero tecnicamente — com testes antes do código, Clean Architecture e DDD.",
+    "ctaCases": "Ver cases",
+    "ctaContact": "Falar comigo",
+    "stats": {
+      "months": "meses até sênior",
+      "roles": "cargos",
+      "certs": "certificações",
+      "years": "anos codando"
+    }
+  },
+  "bento": {
+    "eyebrow": "Sobre / Agora",
+    "title": "Um pouco de mim, <em>agora mesmo</em>.",
+    "photoAlt": "Foto de Vander Reis",
+    "now": "Agora trabalhando em",
+    "nowFoot": "Várias frentes ao mesmo tempo — sempre com <b>ambiente local antes de produção</b>.",
+    "clock": {
+      "label": "Horário local · Minas Gerais",
+      "working": "Em expediente — respondo rápido",
+      "off": "Fora do expediente — respondo amanhã",
+      "loading": "Sincronizando…"
+    },
+    "commit": {
+      "label": "Último commit público",
+      "empty": "GitHub indisponível no momento."
+    },
+    "stack": "Stack principal",
+    "oracle": "Certificado Oracle",
+    "education": "Formação",
+    "offline": "Fora do código"
+  },
+  "cases": {
+    "eyebrow": "Cases",
+    "title": "Problemas reais, <em>arquitetura</em> que aguenta produção.",
+    "intro": "Contexto, problema, solução, arquitetura e resultado. Projetos de cliente sem dados sensíveis — o foco é a abordagem.",
+    "read": "Ler o case",
+    "earlyTitle": "Onde <em>comecei</em>",
+    "earlyIntro": "Os primeiros repositórios, de 2021–2022. Simples, mas foi aqui que peguei gosto por entregar.",
+    "legacyDiagram": "À esquerda, um programa COBOL. As regras de negócio migram módulo a módulo (padrão strangler fig) para uma API .NET Core organizada em camadas da Clean Architecture: Domain no centro, cercado por Application, Infrastructure e API.",
+    "legacyArrow": "strangler fig"
+  },
+  "caseDetail": {
+    "back": "Todos os cases",
+    "period": "Período",
+    "role": "Papel",
+    "stack": "Stack",
+    "repo": "Ver repositório",
+    "confidential": "Projeto de cliente: detalhes e dados omitidos por confidencialidade.",
+    "architecture": "Arquitetura",
+    "context": "Contexto",
+    "problem": "Problema",
+    "solution": "Solução",
+    "decisions": "Decisões de arquitetura",
+    "results": "Resultado",
+    "more": "Mais cases",
+    "prev": "Anterior",
+    "next": "Próximo"
+  },
+  "career": {
+    "eyebrow": "Trajetória",
+    "title": "De estagiário a sênior em <accent>{duration}</accent>.",
+    "intro": "Cada promoção veio de entrega: primeiro sustentar, depois construir, depois modernizar e, por fim, liderar.",
+    "level": "Nível",
+    "current": "atual"
+  },
+  "certifications": {
+    "eyebrow": "Certificações",
+    "title": "Estudo contínuo, <em>validado</em>.",
+    "intro": "Oracle para o ecossistema em que trabalho todos os dias; Rocketseat para a base que me trouxe até aqui.",
+    "credential": "Ver credencial"
+  },
+  "stack": {
+    "eyebrow": "Stack",
+    "title": "Ferramentas que uso <em>em produção</em>.",
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "data": "Dados & Mensageria",
+      "devops": "DevOps & Cloud",
+      "security": "Segurança"
+    }
+  },
+  "principles": {
+    "eyebrow": "Como eu trabalho",
+    "title": "Regras de negócio <em>antes</em> do código.",
+    "intro": "Um jeito de trabalhar que escala com o time e com o sistema.",
+    "items": {
+      "tdd": {
+        "title": "TDD",
+        "body": "Escrevo as regras de negócio e os testes antes da implementação. O teste é a especificação — e a rede de segurança para refatorar sem medo."
+      },
+      "clean": {
+        "title": "Clean Architecture",
+        "body": "Domínio no centro, framework na borda. Trocar banco, fila ou provedor não deveria reescrever regra de negócio."
+      },
+      "ddd": {
+        "title": "DDD",
+        "body": "Linguagem ubíqua com o negócio e contextos bem delimitados — especialmente útil ao desmontar um legado."
+      },
+      "mentoring": {
+        "title": "Mentoria",
+        "body": "Direciono tarefas e oriento devs explicando o porquê, não só o como."
+      },
+      "docs": {
+        "title": "Documentação",
+        "body": "ADRs para decisões, READMEs que rodam de primeira e runbooks para quem estiver de plantão."
+      }
+    }
+  },
+  "github": {
+    "eyebrow": "GitHub ao vivo",
+    "title": "O que está <em>saindo do forno</em>.",
+    "intro": "Dados públicos da API do GitHub, atualizados automaticamente.",
+    "repos": "Repositórios",
+    "followers": "Seguidores",
+    "lastCommit": "Último commit",
+    "profile": "Ver perfil completo",
+    "noDescription": "Sem descrição.",
+    "unavailable": "Não foi possível falar com o GitHub agora. Tente de novo mais tarde.",
+    "cache": "// cache de 1h com revalidação incremental (ISR)"
+  },
+  "securityTeaser": {
+    "eyebrow": "Segurança deste site",
+    "title": "Segurança não é <em>opcional</em> — nem aqui.",
+    "body": "Este portfólio segue as mesmas práticas que aplico em produção: CSP estrita com nonce, headers modernos, proteção contra bots e um pipeline de segurança no CI.",
+    "cta": "Ver detalhes"
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "title": "Vamos <em>conversar</em>?",
+    "intro": "Projetos, vagas, mentoria ou só trocar ideia sobre arquitetura. Respondo em até dois dias úteis.",
+    "elsewhere": "Ou me encontre em",
+    "fields": { "name": "Nome", "email": "E-mail", "message": "Mensagem" },
+    "placeholders": {
+      "name": "Seu nome",
+      "email": "voce@empresa.com",
+      "message": "Conte um pouco sobre o que você precisa…"
+    },
+    "submit": "Enviar mensagem",
+    "sending": "Enviando…",
+    "success": "Mensagem enviada. Obrigado!",
+    "errors": {
+      "name_short": "Informe seu nome.",
+      "name_long": "Nome muito longo.",
+      "name_invalid": "Nome com caracteres inválidos.",
+      "email_invalid": "Informe um e-mail válido.",
+      "message_short": "A mensagem precisa de pelo menos 10 caracteres.",
+      "message_long": "Mensagem muito longa (máx. 5000).",
+      "rate_limited": "Muitas mensagens em pouco tempo. Tente novamente em alguns minutos.",
+      "captcha": "Não foi possível verificar que você é humano. Recarregue e tente de novo.",
+      "unavailable": "Serviço indisponível. Tente de novo ou me chame no LinkedIn."
+    }
+  },
+  "securityPage": {
+    "metaTitle": "Segurança deste site",
+    "metaDescription": "Headers, CSP com nonce, proteção do formulário, pipeline de segurança e OWASP Top 10 aplicados a este portfólio.",
+    "eyebrow": "Segurança",
+    "title": "Como este site se <em>defende</em>.",
+    "intro": "Transparência total: o que está configurado, por quê, e como verificar. Meta: nota A+ no securityheaders.com e no Mozilla Observatory.",
+    "headersTitle": "Headers HTTP",
+    "value": "Valor",
+    "cspBody": "Cada requisição recebe um nonce aleatório de 128 bits. Só scripts com esse nonce executam; 'strict-dynamic' propaga a confiança para o que eles carregam. Nenhum script inline sem nonce, nenhum host liberado.",
+    "cspLive": "Política enviada nesta resposta (nonce ocultado)",
+    "formTitle": "Formulário de contato em camadas",
+    "form": {
+      "honeypot": {
+        "title": "Honeypot",
+        "body": "Campo invisível para humanos. Se vier preenchido, a requisição finge sucesso e é descartada."
+      },
+      "rateLimit": {
+        "title": "Rate limit",
+        "body": "3 envios a cada 10 minutos por cliente, com Upstash Redis. A chave é um hash SHA-256 do IP."
+      },
+      "zod": {
+        "title": "Validação no servidor",
+        "body": "Zod valida tipo, tamanho e formato. Quebras de linha no nome são bloqueadas (header injection)."
+      },
+      "turnstile": {
+        "title": "Cloudflare Turnstile",
+        "body": "Captcha sem fricção, verificado no servidor com a chave secreta."
+      },
+      "sanitize": {
+        "title": "Sanitização",
+        "body": "HTML escapado e caracteres de controle removidos antes de montar o e-mail."
+      },
+      "logs": {
+        "title": "Logs limpos",
+        "body": "Nada de e-mail, IP ou mensagem em logs. Erros do provedor nunca chegam ao cliente."
+      }
+    },
+    "ciTitle": "Pipeline de segurança",
+    "ciBody": "Todo Pull Request passa por qualidade, testes e segurança antes do merge na main protegida. Dependabot mantém as dependências em dia.",
+    "disclosureTitle": "Encontrou algo?",
+    "disclosureBody": "Divulgação responsável é bem-vinda. Os canais de contato estão no security.txt e na política de segurança do repositório."
+  },
+  "footer": {
+    "built": "Next.js, TypeScript e muito café.",
+    "security": "Segurança"
+  },
+  "notFound": {
+    "title": "Página <em>não encontrada</em>.",
+    "body": "O link pode estar quebrado ou a página mudou de lugar.",
+    "cta": "Voltar para o início"
+  }
+}

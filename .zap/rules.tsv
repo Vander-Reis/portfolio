@@ -1,0 +1,2 @@
+10055	WARN	(CSP: style-src-attr 'unsafe-inline' — intencional, ver docs/adr/0004-csp-com-nonce.md)
+10096	IGNORE	(Timestamp disclosure — falso positivo para hashes de assets)

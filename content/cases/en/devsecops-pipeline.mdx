@@ -1,0 +1,34 @@
+---
+title: DevSecOps pipeline GitHub → Azure DevOps
+kicker: DevSecOps
+summary: A delivery flow with Pull Requests, required approvals and security checks on GitHub, automatically synced to Azure DevOps through GitHub Actions.
+order: 4
+period: 2024 — 2025
+role: Technical owner
+diagram: devsecops
+stack: [GitHub Actions, Azure DevOps, CodeQL, Git, YAML]
+context: The code lived in Azure DevOps, but the team wanted GitHub's review experience and security tooling — without breaking the existing build and release pipelines.
+problem: Two homes for the same code cause drift, and direct commits to the main branch skipped review. There was no process guaranteeing review and security before anything reached the build.
+solution: GitHub as the front door — every change arrives through a Pull Request, with automated checks and required approvals. After merging into the protected main, a GitHub Actions workflow syncs the code to Azure DevOps, which remains responsible for build and release.
+architecture:
+  - Branch protection on main, required approvals and green checks as merge prerequisites.
+  - CodeQL and tests running on every Pull Request.
+  - One-way sync workflow GitHub → Azure Repos, preventing drift.
+  - Azure DevOps pipelines preserved — process change without a big bang.
+results:
+  - value: 100% via PR
+    label: No change reaches main without review
+  - value: One way
+    label: One-directional sync removes drift between repositories
+  - value: Zero rework
+    label: Existing build and release pipelines reused
+confidential: true
+---
+
+## Security as a step in the flow
+
+Security that depends on remembering to run a tool doesn't scale. Here it's a merge prerequisite: if CodeQL or the tests fail, the PR doesn't get in.
+
+## One-way sync
+
+GitHub is the source of truth; Azure Repos is a mirror. Nobody commits to the mirror directly — the workflow takes care of it on every push to main.

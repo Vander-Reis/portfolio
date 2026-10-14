@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* Tema escuro controlado por data-theme no <html> (claro é o padrão). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ── Tokens semânticos ─────────────────────────────────────────────── */
+:root {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f3f2ec;
+  --ink: #111111;
+  --ink-2: #3b3b38;
+  --muted: #6b6a64;
+  --line: #e6e4dc;
+  --line-strong: #d4d1c6;
+  --accent: #2b4bff;
+  --accent-ink: #ffffff;
+  --accent-soft: #e9edff;
+  --ok: #138a52;
+  --spot: rgb(43 75 255 / 0.08);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0d0d0c;
+  --surface: #151514;
+  --surface-2: #1c1c1a;
+  --ink: #f2f1ec;
+  --ink-2: #cfcdc5;
+  --muted: #9a9890;
+  --line: #2a2926;
+  --line-strong: #3a3934;
+  --accent: #7088ff;
+  --accent-ink: #0d0d0c;
+  --accent-soft: #1b2142;
+  --ok: #3ccf8e;
+  --spot: rgb(112 136 255 / 0.12);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@theme {
+  /* Escala tipográfica editorial (clamp = fluido entre mobile e desktop). */
+  --text-display: clamp(2.75rem, 1.6rem + 5.6vw, 6.5rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+  --text-h1: clamp(2.25rem, 1.5rem + 3.4vw, 4.25rem);
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.2;
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+
+  --radius-card: 14px;
+  --radius-chip: 999px;
+
+  /* Curvas e durações — espelhadas em src/shared/lib/motion.ts */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+
+  --animate-pulse-dot: pulse-dot 2s var(--ease-in-out-quart) infinite;
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.85); }
+  }
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply font-sans bg-bg text-ink;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+
+@layer components {
+  /* Palavra de destaque em Instrument Serif itálico. */
+  .em-serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow {
+    @apply font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
+  }
+  /* Card com spotlight que segue o cursor (vars --x/--y setadas via JS). */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), var(--spot), transparent 60%);
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-out-expo);
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* View Transitions entre a lista de cases e a página do case. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 380ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

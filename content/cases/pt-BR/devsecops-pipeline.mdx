@@ -1,0 +1,34 @@
+---
+title: Pipeline DevSecOps GitHub → Azure DevOps
+kicker: DevSecOps
+summary: Fluxo de entrega com Pull Requests, aprovações obrigatórias e checagens de segurança no GitHub, sincronizado automaticamente com o Azure DevOps via GitHub Actions.
+order: 4
+period: 2024 — 2025
+role: Responsável técnico
+diagram: devsecops
+stack: [GitHub Actions, Azure DevOps, CodeQL, Git, YAML]
+context: O código vivia no Azure DevOps, mas o time queria a experiência de revisão e as ferramentas de segurança do GitHub — sem quebrar os pipelines de build e release já existentes.
+problem: Dois lugares para o mesmo código geram divergência, e commits direto na branch principal pulavam revisão. Faltava um processo que garantisse revisão e segurança antes de qualquer coisa chegar ao build.
+solution: GitHub como porta de entrada — toda mudança chega por Pull Request, com checagens automáticas e aprovações obrigatórias. Após o merge na main protegida, um workflow do GitHub Actions sincroniza o código com o Azure DevOps, que segue responsável por build e release.
+architecture:
+  - Branch protection na main, aprovações obrigatórias e checks verdes como pré-requisito de merge.
+  - CodeQL e testes rodando em cada Pull Request.
+  - Workflow de sincronização unidirecional GitHub → Azure Repos, evitando divergência.
+  - Pipelines do Azure DevOps preservados — mudança de processo sem big-bang.
+results:
+  - value: 100% via PR
+    label: Nenhuma mudança chega à main sem revisão
+  - value: 1 sentido
+    label: Sincronização unidirecional elimina divergência entre repositórios
+  - value: Zero retrabalho
+    label: Pipelines de build e release existentes reaproveitados
+confidential: true
+---
+
+## Segurança como etapa do fluxo
+
+Segurança que depende de lembrar de rodar uma ferramenta não escala. Aqui ela é pré-requisito de merge: se o CodeQL ou os testes falham, o PR não entra.
+
+## Sincronização unidirecional
+
+O GitHub é a fonte da verdade; o Azure Repos é um espelho. Ninguém faz commit direto no espelho — o workflow cuida disso a cada push na main.

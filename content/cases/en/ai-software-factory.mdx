@@ -1,0 +1,34 @@
+---
+title: AI Software Factory
+kicker: Multi-agent orchestration
+summary: A platform that orchestrates specialised AI agents — planning, coding, review and testing — to run software engineering workflows end to end.
+order: 3
+period: 2025 — present
+role: Creator
+diagram: factory
+stack: [Next.js 15, React 19, TypeScript, Node.js, pnpm, Monorepo]
+context: Coding assistants help with isolated tasks, but software engineering is a process — requirements, design, implementation, review and testing. I wanted to explore what happens when each step becomes an agent with a clear role.
+problem: A single generic agent loses context and quality on long tasks. There was no way to split the work, track progress and keep traceable artifacts.
+solution: A pnpm monorepo with three apps — web, api and worker. The Next.js 15 + React 19 UI creates and tracks runs; the API orchestrates; the worker processes the queue and coordinates specialised agents, each with a well-defined responsibility and output.
+architecture:
+  - pnpm workspaces monorepo with apps/web, apps/api and apps/worker plus shared packages.
+  - Asynchronous processing through a queue — the API answers fast, the worker does the heavy lifting.
+  - Agents with explicit roles (planner, coder, reviewer, tester), modelled on a real team.
+  - State and artifacts persisted to trace every decision in a run.
+results:
+  - value: 3 apps
+    label: web, api and worker with separate responsibilities
+  - value: 4 roles
+    label: Specialised agents mirroring an engineering workflow
+  - value: TDD
+    label: The tester agent validates before code is accepted
+repo: https://github.com/Vander-Reis
+---
+
+## Why multi-agent
+
+Human teams work because each person has a role and a definition of done. Same idea here: the planner breaks the requirement into tasks, the coder implements, the reviewer critiques and the tester validates — and the loop repeats until it passes.
+
+## Why a monorepo
+
+Types, contracts and utilities shared by web, api and worker live in internal packages. A contract change breaks the build immediately, not in production.
