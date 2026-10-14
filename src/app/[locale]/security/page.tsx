@@ -176,7 +176,7 @@ export default async function SecurityPage({ params }: Props) {
               /.well-known/security.txt <ArrowUpRight className="size-3.5" aria-hidden />
             </a>
             <a
-              href={`${site.github.url}/vander-portfolio/blob/main/SECURITY.md`}
+              href={`${site.github.url}/portfolio/blob/main/SECURITY.md`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 font-mono hover:text-accent"

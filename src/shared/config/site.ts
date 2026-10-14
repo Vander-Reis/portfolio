@@ -12,7 +12,6 @@ export const site = {
   location: { 'pt-BR': 'Minas Gerais, Brasil · Remoto', en: 'Minas Gerais, Brazil · Remote' } satisfies L10n,
   timeZone: 'America/Sao_Paulo',
   startedInTech: 2020,
-  email: 'contato@vanderreis.dev', // TODO: e-mail público de contato
   github: { user: 'Vander-Reis', url: 'https://github.com/Vander-Reis' },
   linkedin: 'https://www.linkedin.com/in/vander-reis-044163201/',
   x: { handle: '@VanderReis9', url: 'https://x.com/VanderReis9' },

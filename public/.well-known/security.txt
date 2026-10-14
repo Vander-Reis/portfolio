@@ -1,6 +1,5 @@
-Contact: https://github.com/Vander-Reis/vander-portfolio/security/advisories/new
+Contact: https://github.com/Vander-Reis/portfolio/security/advisories/new
 Contact: https://www.linkedin.com/in/vander-reis-044163201/
 Expires: 2027-10-13T00:00:00.000Z
 Preferred-Languages: pt-BR, en
-Canonical: https://vanderreis.dev/.well-known/security.txt
-Policy: https://github.com/Vander-Reis/vander-portfolio/blob/main/SECURITY.md
+Policy: https://github.com/Vander-Reis/portfolio/blob/main/SECURITY.md
