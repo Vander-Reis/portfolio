@@ -43,7 +43,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
     "@biomejs/biome": "2.2.4",
-    "@commitlint/cli": "^19.8.1",
+    "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^19.8.1",
     "@playwright/test": "^1.55.1",
     "@tailwindcss/postcss": "^4.1.13",
